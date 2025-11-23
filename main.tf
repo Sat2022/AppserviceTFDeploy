@@ -5,6 +5,14 @@ terraform {
       version = "~>3.0"
     }
   }
+  # ADD THIS BLOCK
+  backend "azurerm" {
+    resource_group_name  = "tf-state-rg"      # Replace with your Storage Account's RG Name
+    storage_account_name = "tfstate970c22"     # Replace with your REAL Storage Account Name
+    container_name       = "tfstate"                 # Replace with your container name (create it if missing)
+    key                  = "webapp-test.tfstate"     # Unique name for this state file
+    use_oidc             = true                      # Essential for GitHub Actions auth
+  }
 }
 
 provider "azurerm" {
