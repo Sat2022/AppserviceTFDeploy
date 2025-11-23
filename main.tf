@@ -52,12 +52,12 @@ resource "azurerm_windows_web_app" "test_app" {
   app_settings = {
     "Environment" = "Test"
     "CreatedBy"   = "Terraform"
-    "Version"     = "2.0"      # Changed to 2.0
+    "Version"     = "3.0"      # Changed to 3.0
     "NewFeature"  = "Enabled"  # NEW setting
   }
 
   tags = {
     Lab = "Azure app services"
-    "Env" = "v2-Beta"          # Changed tag
+    "Env" = "v3-Beta"          # Changed tag
   }
 }
